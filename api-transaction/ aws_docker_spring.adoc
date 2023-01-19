@@ -1,0 +1,16 @@
+
+|===
+| Tema | Branch
+
+| Tratar erros
+| aws_docker-spring
+
+
+*__ Tratar erros__*
+
+Primeiro cria :
+
+1 - ExceptionResponse
+2 - UnsuportedMethodOperationException
+3 - CustomizeResponseEntityExceptionHandler
+
