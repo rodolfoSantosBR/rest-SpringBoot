@@ -1,13 +1,13 @@
-package br.com.rodolfo.apitransactions;
+package br.com.rodolfo.api.transaction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiTransactionsApplication {
+public class ApiTransactionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiTransactionsApplication.class, args);
+		SpringApplication.run(ApiTransactionApplication.class, args);
 	}
 
 }

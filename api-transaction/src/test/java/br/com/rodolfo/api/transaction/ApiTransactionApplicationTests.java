@@ -1,10 +1,10 @@
-package br.com.rodolfo.apitransactions;
+package br.com.rodolfo.api.transaction;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiTransactionsApplicationTests {
+class ApiTransactionApplicationTests {
 
 	@Test
 	void contextLoads() {
