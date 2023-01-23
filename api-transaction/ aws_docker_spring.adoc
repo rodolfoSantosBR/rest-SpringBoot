@@ -6,6 +6,9 @@
 | aws_docker-spring
 
 
+| Injecao de dependencia
+| aws_docker-spring/injecaoDependencia
+
 *__ Tratar erros__*
 
 Primeiro cria :
@@ -14,3 +17,7 @@ Primeiro cria :
 2 - UnsuportedMethodOperationException
 3 - CustomizeResponseEntityExceptionHandler
 
+
+*__Injecao de Dependencia __*
+
+Foi criado a injecao de dependencia no PersonController com o uso de PersonServices
