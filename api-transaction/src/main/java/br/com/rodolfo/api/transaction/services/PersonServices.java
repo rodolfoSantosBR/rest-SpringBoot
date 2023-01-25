@@ -1,6 +1,10 @@
 package br.com.rodolfo.api.transaction.services;
 
+import br.com.rodolfo.api.transaction.exception.NotFoundOperationException;
 import br.com.rodolfo.api.transaction.model.Person;
+import br.com.rodolfo.api.transaction.repositories.PersonRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,26 +13,19 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
+@AllArgsConstructor
 public class PersonServices {
     private final AtomicLong counter = new AtomicLong();
 
-    private Logger logger = Logger.getLogger(PersonServices.class.getName());
+   private final PersonRepository personRepository;
 
     public List<Person> findAll() {
 
-        logger.info("Finding all people!");
-
-        List<Person> persons = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            Person person = mockPerson(i);
-            persons.add(person);
-        }
-        return persons;
+        return personRepository.findAll();
     }
 
-    public Person findById(String id) {
+    public Person findById(Long id) {
 
-        logger.info("Finding one person!");
 
         Person person = new Person();
         person.setId(counter.incrementAndGet());
@@ -36,26 +33,37 @@ public class PersonServices {
         person.setLastName("Costa");
         person.setAddress("Uberlândia - Minas Gerais - Brasil");
         person.setGender("Male");
-        return person;
+
+        return personRepository.findById(id).orElseThrow(
+                () -> new NotFoundOperationException("Nenhum recurso encontrado"));
+
     }
 
     public Person create(Person person) {
-
-        logger.info("Creating one person!");
-
-        return person;
+        return personRepository.save(person);
     }
 
     public Person update(Person person) {
 
-        logger.info("Updating one person!");
 
-        return person;
+      var entity = personRepository.findById(person.getId()).orElseThrow(
+                () -> new NotFoundOperationException("Nenhum recurso encontrado"));
+
+        entity.setId(counter.incrementAndGet());
+        entity.setFirstName("Leandro");
+        entity.setLastName("Costa");
+        entity.setAddress("Uberlândia - Minas Gerais - Brasil");
+        entity.setGender("Male");
+
+        return personRepository.save(entity);
     }
 
-    public void delete(String id) {
+    public void delete(Long id) {
 
-        logger.info("Deleting one person!");
+        var entity = personRepository.findById(id).orElseThrow(
+                () -> new NotFoundOperationException("Nenhum recurso encontrado"));
+
+        personRepository.delete(entity);
     }
 
     private Person mockPerson(int i) {

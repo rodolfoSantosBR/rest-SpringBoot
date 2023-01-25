@@ -1,4 +1,12 @@
 
+_/home/ubuntu20/dev/workspace/lab/rest-SpringBoot/api-transaction  → diretorio na maquina
+https://github.com/rodolfoSantosBR/rest-SpringBoot   → Git
+https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/learn/lecture/32559808#questions → curso
+Arquivo principal aws_docker_spring.adoc_
+
+
+
+
 |===
 | Tema | Branch
 
@@ -21,3 +29,22 @@ Primeiro cria :
 *__Injecao de Dependencia __*
 
 Foi criado a injecao de dependencia no PersonController com o uso de PersonServices
+
+Trabalhando com banco de dados H2
+
+Feita a configuracao no pom.xml e no yml
+basta acessar a url http:localhost:8089/h2-console
+
+
+*_Banco de dados_*
+
+Body Usado para criar Person
+
+{
+
+    "firstName" : "Leonardo",
+    "lastName"  : "da Vinci",
+    "address" : "Anchiano - Italy",
+    "gender" : "Male"
+
+}
