@@ -8,6 +8,7 @@ class ApiTransactionApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

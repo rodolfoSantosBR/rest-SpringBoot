@@ -48,3 +48,16 @@ Body Usado para criar Person
     "gender" : "Male"
 
 }
+
+*_Trabalhando com flyway_*
+
+Referencia:  Secao 11 -
+https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/learn/lecture/32575918#questions
+
+1) Basta adicionar as dependencias no pom.xml e o plugin apontando pro banco.
+
+2) Criar a estrutura no diretorio como na figura abaixo.
+
+image::img/image-2023-01-28-10-17-08-415.png[]
+
+
