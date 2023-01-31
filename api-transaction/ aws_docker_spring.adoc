@@ -17,6 +17,15 @@ Arquivo principal aws_docker_spring.adoc_
 | Injecao de dependencia
 | aws_docker-spring/injecaoDependencia
 
+
+| Injecao de dependencia
+| aws_docker-spring/injecaoDependencia
+
+eu achava que era de outra r3a vpn pra mim por enauqnto nao chega a impactar sdsadsasds
+| Banco de dados
+| aws_docker-spring/injecaoDependencia
+
+
 *__ Tratar erros__*
 
 Primeiro cria :
@@ -59,5 +68,11 @@ https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/l
 2) Criar a estrutura no diretorio como na figura abaixo.
 
 image::img/image-2023-01-28-10-17-08-415.png[]
+
+
+*_Open API_*
+
+http://localhost:8089/microservicos/api-docs
+http://localhost:8089/swagger-ui/index.html
 
 

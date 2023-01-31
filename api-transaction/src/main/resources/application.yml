@@ -15,3 +15,7 @@ spring:
 
   flyway:
    schemas: PUBLIC
+
+springdoc:
+  api-docs:
+    path: /microservicos/api-docs

@@ -1,0 +1,63 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+
+    <profiles>
+
+        <profile>
+
+            <id>rodolfo.dev</id>
+
+            <repositories>
+
+                <repository>
+
+                    <snapshots>
+
+                        <enabled>true</enabled>
+
+                    </snapshots>
+
+                    <id>central</id>
+
+                    <name>milestone</name>
+
+                    <url>https://repo.spring.io/milestone</url>
+
+                </repository>
+
+            </repositories>
+
+            <pluginRepositories>
+
+                <pluginRepository>
+
+                    <snapshots>
+
+                        <enabled>false</enabled>
+
+                    </snapshots>
+
+                    <id>central</id>
+
+                    <name>milestone</name>
+
+                    <url>https://repo.spring.io/milestone</url>
+
+                </pluginRepository>
+
+            </pluginRepositories>
+
+            <id>rodolfo</id>
+
+            <activeProfiles>
+
+                <activeProfile>rodolfo.dev</activeProfile>
+
+            </activeProfiles>
+        </profile>
+
+
+    </profiles>
+
+
+</settings>
