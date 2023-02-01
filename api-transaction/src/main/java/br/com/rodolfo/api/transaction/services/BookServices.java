@@ -40,6 +40,7 @@ public class BookServices {
 	
 	public BookVO create(BookVO book) {
 		logger.info("Creating one book!");
+		if (book == null) throw new  NotFoundOperationException("Erro ");
 		var entity = DozerMapper.parseObject(book, Book.class);
 		var vo =  DozerMapper.parseObject(repository.save(entity), BookVO.class);
 		return vo;

@@ -26,6 +26,10 @@ eu achava que era de outra r3a vpn pra mim por enauqnto nao chega a impactar sds
 | aws_docker-spring/injecaoDependencia
 
 
+| Teste unitario com Mockito
+| aws_docker_spring/testeUnitarioMockito
+
+
 *__ Tratar erros__*
 
 Primeiro cria :
@@ -74,5 +78,8 @@ image::img/image-2023-01-28-10-17-08-415.png[]
 
 http://localhost:8089/microservicos/api-docs
 http://localhost:8089/swagger-ui/index.html
+
+
+*_Teste unitario com Mockito_*
 
 
