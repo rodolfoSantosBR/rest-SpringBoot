@@ -82,4 +82,13 @@ http://localhost:8089/swagger-ui/index.html
 
 *_Teste unitario com Mockito_*
 
+ --
+
+
+*_Teste de integracao_*
+
+
+
+
+
 
