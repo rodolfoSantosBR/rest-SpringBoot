@@ -1,8 +1,8 @@
 
-_/home/ubuntu20/dev/workspace/lab/rest-SpringBoot/api-transaction  → diretorio na maquina
-https://github.com/rodolfoSantosBR/rest-SpringBoot   → Git
-https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/learn/lecture/32559808#questions → curso
-Arquivo principal aws_docker_spring.adoc_
+ _/home/ubuntu20/dev/workspace/lab/rest-SpringBoot/api-transaction → diretorio na maquina
+ https://github.com/rodolfoSantosBR/rest-SpringBoot   → Git
+ https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/learn/lecture/32559808#questions → curso
+ Arquivo principal aws_docker_spring.adoc_
 
 
 
@@ -29,6 +29,8 @@ eu achava que era de outra r3a vpn pra mim por enauqnto nao chega a impactar sds
 | Teste unitario com Mockito
 | aws_docker_spring/testeUnitarioMockito
 
+
+|===
 
 *__ Tratar erros__*
 
@@ -90,7 +92,6 @@ http://localhost:8089/swagger-ui/index.html
 
 docker image pull mysql:8.0.29
 docker run -p 3309:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:8.0.29
-
 
 
 
