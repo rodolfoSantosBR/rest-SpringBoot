@@ -1,4 +1,4 @@
-package br.com.rodolfo.configs;
+package br.com.rodolfo.api.transaction.configs;
 
 public class TestConfigs {
 

@@ -1,21 +1,24 @@
 server:
   port: 8888
-
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-    show-sql: true
-  h2:
-    console.enabled: true
+    show-sql: false
+#  flyway:
+#    default-schema: rest_with_spring_boot_erudio
 
-  flyway:
-   schemas: PUBLIC
+
+#  h2:
+#    console.enabled: true
+#
+#  flyway:
+#   schemas: rest_with_spring_boot_erudio
 
 springdoc:
   api-docs:
