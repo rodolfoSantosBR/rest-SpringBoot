@@ -4,7 +4,9 @@
  https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/learn/lecture/32559808#questions → curso
  Arquivo principal aws_docker_spring.adoc_
 
+PRA ESSE PROJETO E PRECISO RODAR:
 
+docker run -p 3309:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:8.0.29
 
 
 |===
