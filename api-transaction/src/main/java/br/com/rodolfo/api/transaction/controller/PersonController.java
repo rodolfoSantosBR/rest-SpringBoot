@@ -64,11 +64,12 @@ public class PersonController {
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content),
             }
     )
+    @CrossOrigin(origins = "http://localhost:8888")
     public Person findById(@PathVariable(value = "id") Long id) {
         return service.findById(id);
     }
 
-    @PostMapping(value = "/{id}",
+    @PostMapping(
             produces = { "application/json", "application/xml", "application/yml"  })
     @Operation(summary = "Creates a Person!!", description = "Creates a Person",
             tags = {"People"},
@@ -84,7 +85,7 @@ public class PersonController {
             }
     )
 
-
+    @CrossOrigin(origins = {"http://localhost:8888", "htts://erudio.com.br" } )
     public Person create(@RequestBody Person person) {
         return service.create(person);
     }

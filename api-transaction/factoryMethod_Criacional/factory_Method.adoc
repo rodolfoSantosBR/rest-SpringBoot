@@ -1,0 +1,25 @@
+
+*__ Factory Method__*
+
+
+ Define uma interface para criacao do Objeto, mas as subclasses podem decidir qual classe instanciar.
+
+
+
+image::img/image-2023-02-15-20-33-01-279.png[]
+
+Factory Method Generico:
+
+
+image::img/image-2023-02-15-20-59-57-834.png[]
+
+Quando utilizar:
+
+image::img/image-2023-02-15-21-02-50-063.png[]
+
+1 - Banco nao sabe qual classe ele vai instanciar
+
+Consequencias de usar o factory Method:
+
+
+image::img/image-2023-02-15-21-35-27-476.png[]

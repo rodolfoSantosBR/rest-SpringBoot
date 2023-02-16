@@ -93,7 +93,7 @@ http://localhost:8089/swagger-ui/index.html
 
 
 docker image pull mysql:8.0.29
-docker run -p 3309:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:8.0.29
+docker run -p 3309:3306 -e MYSQL_ALLOW_EMPTY_PASSW0ORD=yes mysql:8.0.29
 
 
 
