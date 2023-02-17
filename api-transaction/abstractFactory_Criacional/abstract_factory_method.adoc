@@ -1,0 +1,46 @@
+
+*__ Abstract Factory  __*
+
+
+ Estrutura do Padrao Abstract Factory
+
+
+Fornece uma interface para criar FAMILIA DE OBJETOS RELACIONADOS
+ou DEPENDENTES sem especificar suas classes concretas
+
+image::img/image-2023-02-16-19-49-47-655.png[]
+
+
+ Estrutura das interfaces para esse exemplo, no exemplo abaixo
+temos as familias de cada objeto:
+
+
+image::img/image-2023-02-16-20-00-58-889.png[]
+
+
+Evoluindo a implementacao das classes:
+
+image::img/image-2023-02-16-20-20-58-597.png[]
+
+
+Diagrama generico de um padrao Abstract Factory
+
+image::img/image-2023-02-16-21-24-35-699.png[]
+
+
+Quando um sistema deve ser configurado com uma dentre multiplas familias de produtos.
+
+Quando  uma familia de objetos relacionados foram projetados para trabalhar em conjunto.
+
+Quando se deseja fornecer uma biblioteca de produtos e se deseja revelar para o cliente
+somente as interfaces e nao suas implementacoes
+
+
+Estrutura do codigo:
+
+image::img/image-2023-02-16-21-38-20-860.png[]
+
+
+
+
+
