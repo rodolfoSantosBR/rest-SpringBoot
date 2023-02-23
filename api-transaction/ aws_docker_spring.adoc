@@ -97,4 +97,107 @@ docker run -p 3309:3306 -e MYSQL_ALLOW_EMPTY_PASSW0ORD=yes mysql:8.0.29
 
 
 
+*_CORS_*
 
+
+Habilitando CORS no Spring :
+
+ Na classe PersonController ;
+
+
+  @CrossOrigin(origins = {"http://localhost:8888", "htts://erudio.com.br" } )
+    public Person create(@RequestBody Person person) {
+        return service.create(person);
+    }
+
+
+  *Fazendo teste de integracao do CORS:*
+ Criando a classe PersonControllerJsonTest;
+
+
+ // Vai desabilitar falha quando vierem campos existentes no Json
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+
+ Classe de teste
+
+
+ @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+ @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+ public class PersonControllerJsonTest extends AbstractIntegrationTest {
+
+
+    private static RequestSpecification specification;
+
+    private static ObjectMapper objectMapper;
+
+    private static PersonVO person;
+
+
+    @BeforeAll
+    public static void setup() {
+
+        objectMapper = new ObjectMapper();
+
+        // Vai desabilitar falha quando vierem campos existentes no Json
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        person = new PersonVO();
+
+
+    }
+
+    @Test
+    @Order(1)
+    public void testCreate() throws JsonProcessingException {
+
+        mockPerson();
+
+        // Deve ficar aqui porque beforeAll nao pega o contexto do Spring
+        specification = new RequestSpecBuilder()
+                .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, "https://erudio.com.br")
+                .setBasePath("/person")
+                .setPort(TestConfigs.SERVER_PORT)
+                .addFilter(new RequestLoggingFilter(LogDetail.ALL))
+                .addFilter(new ResponseLoggingFilter(LogDetail.ALL))
+                .build();
+
+        var content =
+                given().spec(specification)
+                        .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                        .body(person)
+                        .when()
+                        .post()
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .body()
+                        .asString();
+
+        PersonVO createdPerson = objectMapper.readValue(content, PersonVO.class);
+        person = createdPerson ;
+
+        assertNotNull(person.getId());
+        assertNotNull(person.getFirstName());
+        assertTrue(createdPerson.getId() > 0);
+
+
+        assertEquals("Richard", createdPerson.getFirstName());
+
+
+    }
+
+    private void mockPerson() {
+        person.setFirstName("Richard");
+        person.setLastName("Stallment");
+        person.setAddress("Nova York");
+        person.setGender("Male");
+
+    }
+
+ }
+
+
+ Estrutura das classes:
+
+
+image::img/image-2023-02-22-20-58-21-193.png[]

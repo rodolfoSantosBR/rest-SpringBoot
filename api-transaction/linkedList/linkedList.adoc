@@ -1,0 +1,18 @@
+|===
+| Tema | Branch
+
+| Linked list vs Arrays
+|
+
+
+|===
+
+*__ Linked list vs Arrays __*
+
+Na LinkedList os elementos sao independentes ao contrario dos Arrays
+
+Na LinkedList o seu tamanho nao é predefinido como no Array
+
+O acesso randomico na LinkedList é muito lento em relacao ao Array
+
+A remocao de um elemento no LinkedList e bem rapido

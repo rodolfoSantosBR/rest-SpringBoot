@@ -1,10 +1,10 @@
-package com.example.abstractfactory;
+package com.example.linkedlist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AbstractFactoryApplicationTests {
+class LinkedListApplicationTests {
 
     @Test
     void contextLoads() {

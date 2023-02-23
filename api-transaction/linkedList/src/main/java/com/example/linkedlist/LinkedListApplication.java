@@ -1,13 +1,13 @@
-package com.example.abstractfactory;
+package com.example.linkedlist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AbstractFactoryApplication {
+public class LinkedListApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AbstractFactoryApplication.class, args);
+        SpringApplication.run(LinkedListApplication.class, args);
     }
 
 }

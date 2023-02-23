@@ -1,10 +1,7 @@
 package br.com.rodolfo.api.transaction.controller;
 
 
-import br.com.rodolfo.api.transaction.converters.NumberConverter;
 import br.com.rodolfo.api.transaction.data.vo.v1.PersonVO;
-import br.com.rodolfo.api.transaction.exception.UnsuportedMethodOperationException;
-import br.com.rodolfo.api.transaction.math.SimpleMath;
 import br.com.rodolfo.api.transaction.model.Person;
 import br.com.rodolfo.api.transaction.services.PersonServices;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,12 +11,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 @RestController
 @RequestMapping("/person")
 @Tag(name = "People", description = "Endpoints for Managing People")
@@ -85,7 +80,7 @@ public class PersonController {
             }
     )
 
-    @CrossOrigin(origins = {"http://localhost:8888", "htts://erudio.com.br" } )
+    @CrossOrigin(origins = {"http://localhost:8888", "https://erudio.com.br" } )
     public Person create(@RequestBody Person person) {
         return service.create(person);
     }
