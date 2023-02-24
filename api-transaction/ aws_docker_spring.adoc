@@ -203,7 +203,6 @@ Habilitando CORS no Spring :
 image::img/image-2023-02-22-20-58-21-193.png[]
 
 
-
  *Testando com diferente origins*
 
 Em alguns dos testes dev ter erros.

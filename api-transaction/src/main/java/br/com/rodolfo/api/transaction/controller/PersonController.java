@@ -106,6 +106,28 @@ public class PersonController {
     }
 
 
+    @PatchMapping(value = "/{id}",
+            consumes = { "application/json", "application/xml", "application/yml"   },
+            produces = { "application/json", "application/xml", "application/yml"  })
+    @Operation(summary = "Updates a Person!!",
+            description = "Updates a Person by passing in a JSON, XML or YML representation of the person!",
+            tags = {"People"},
+            responses = {
+                    @ApiResponse(description = "Updated", responseCode = "200",
+                            content = @Content(schema = @Schema(implementation = PersonVO.class))
+                    ),
+                    @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
+                    @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
+                    @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
+                    @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content),
+            }
+    )
+    public PersonVO enablePerson(@PathVariable(value = "id") Long id) {
+        return service.disablePerson(id);
+    }
+
+
+
 
     @DeleteMapping(value = "/{id}")
     @Operation(summary = "Deletes a Person!!",

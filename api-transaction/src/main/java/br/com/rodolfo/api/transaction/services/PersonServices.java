@@ -1,16 +1,20 @@
 package br.com.rodolfo.api.transaction.services;
 
+import br.com.rodolfo.api.transaction.data.vo.v1.PersonVO;
 import br.com.rodolfo.api.transaction.exception.NotFoundOperationException;
+import br.com.rodolfo.api.transaction.mapper.DozerMapper;
 import br.com.rodolfo.api.transaction.model.Person;
 import br.com.rodolfo.api.transaction.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
+
 
 @Service
 @AllArgsConstructor
@@ -66,6 +70,15 @@ public class PersonServices {
         personRepository.delete(entity);
     }
 
+    @Transactional
+    public PersonVO disablePerson(Long id) {
+
+        personRepository.disablePerson(id);
+
+        var entity = personRepository.findById(id);
+        var vo = DozerMapper.parseObject(entity, PersonVO.class);
+        return vo;
+    }
     private Person mockPerson(int i) {
 
         Person person = new Person();
@@ -76,5 +89,4 @@ public class PersonServices {
         person.setGender("Male");
         return person;
     }
-
 }
