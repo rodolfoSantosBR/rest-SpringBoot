@@ -201,3 +201,41 @@ Habilitando CORS no Spring :
 
 
 image::img/image-2023-02-22-20-58-21-193.png[]
+
+
+
+ *Testando com diferente origins*
+
+Em alguns dos testes dev ter erros.
+
+
+
+    @Test
+    @Order(4)
+    public void testFindByIdWithWrongOrigin() throws JsonMappingException, JsonProcessingException {
+        mockPerson();
+
+        specification = new RequestSpecBuilder()
+                .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_SEMERU)
+                .setBasePath("/person")
+                .setPort(TestConfigs.SERVER_PORT)
+                .addFilter(new RequestLoggingFilter(LogDetail.ALL))
+                .addFilter(new ResponseLoggingFilter(LogDetail.ALL))
+                .build();
+
+        var content = given().spec(specification)
+                .contentType(TestConfigs.CONTENT_TYPE_JSON)
+                .pathParam("id", person.getId())
+                .when()
+                .get("{id}")
+                .then()
+                .statusCode(403)
+                .extract()
+                .body()
+                .asString();
+
+
+        assertNotNull(content);
+        assertEquals("Invalid CORS request", content);
+    }
+
