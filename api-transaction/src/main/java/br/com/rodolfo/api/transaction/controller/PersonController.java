@@ -3,6 +3,7 @@ package br.com.rodolfo.api.transaction.controller;
 
 import br.com.rodolfo.api.transaction.data.vo.v1.PersonVO;
 import br.com.rodolfo.api.transaction.model.Person;
+import br.com.rodolfo.api.transaction.model.Task;
 import br.com.rodolfo.api.transaction.services.PersonServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 @RestController
 @RequestMapping("/person")
@@ -105,7 +107,12 @@ public class PersonController {
         return service.update(person);
     }
 
-
+    @PutMapping(value = "/tasks/{id}",
+            consumes = { "application/json"   },
+            produces = { "application/json"  })
+    public Task update(@RequestBody @Valid Task task, @PathVariable(value = "id") Long id) {
+        return service.updateTask(task, id);
+    }
 
     @DeleteMapping(value = "/{id}")
     @Operation(summary = "Deletes a Person!!",

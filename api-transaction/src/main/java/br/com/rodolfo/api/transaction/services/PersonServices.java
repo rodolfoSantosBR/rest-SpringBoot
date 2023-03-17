@@ -3,21 +3,28 @@ package br.com.rodolfo.api.transaction.services;
 import br.com.rodolfo.api.transaction.exception.NotFoundOperationException;
 import br.com.rodolfo.api.transaction.model.Person;
 import br.com.rodolfo.api.transaction.repositories.PersonRepository;
+import br.com.rodolfo.api.transaction.repositories.TaskRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import br.com.rodolfo.api.transaction.model.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
-@AllArgsConstructor
 public class PersonServices {
     private final AtomicLong counter = new AtomicLong();
 
    private final PersonRepository personRepository;
+
+   private final TaskRepository taskRepository;
+
+    public PersonServices(PersonRepository personRepository, TaskRepository taskRepository) {
+        this.personRepository = personRepository;
+        this.taskRepository = taskRepository;
+    }
 
     public List<Person> findAll() {
 
@@ -76,5 +83,20 @@ public class PersonServices {
         person.setGender("Male");
         return person;
     }
+
+
+    public Task updateTask(Task task, Long id) {
+
+        var entity = taskRepository.findById(id).orElseThrow(
+                () -> new NotFoundOperationException("Nenhum recurso encontrado"));
+
+        entity.setId(entity.getId());
+        entity.setDescription( task.getDescription());
+        entity.setPriority(task.getPriority());
+
+
+        return taskRepository.save(entity);
+    }
+
 
 }
